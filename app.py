@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import request
 import logging
-from pprint import pprint
 app = Flask(__name__)
 
 if __name__ != '__main__':
