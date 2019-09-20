@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+
 import logging
 app = Flask(__name__)
 
@@ -20,7 +21,8 @@ def log_request_info():
 
 @app.route('/', methods=['GET'])
 def responder():
-    title = request.args[0][1]
+    arguments = request.args.to_dict()
+    title = arguments['q']
     if title == 'Name':
         return 'George Peterson'
 
