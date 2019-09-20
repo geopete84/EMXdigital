@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from solve_puzzle import solve_puzzle
 
 import logging
 app = Flask(__name__)
@@ -33,23 +34,7 @@ def responder():
         return 'OK'
 
     if title == 'Puzzle':
-        import re
-        result = re.search('Please solve this puzzle:\n ABCD\nA(....)\nB(....)\nC(....)\nD(....)\n',
-                           arguments['d'])
-
-        matrix = [['x' for y in range(4)] for x in range(4)]
-        for i in range(4):
-            for j in range(4):
-                if i == j:
-                    matrix[i][j] = '='
-                else:
-                    matrix[i][j] = result.group(i+1)[j]
-
-        return ' ABCD\nA{}\nB{}\nC{}\nD{}'.format(''.join(matrix[0]),
-                                                  ''.join(matrix[1]),
-                                                  ''.join(matrix[2]),
-                                                  ''.join(matrix[3]))
-
+        return solve_puzzle(arguments['d'])
 
     if title == 'Years':
         return '9 years'
