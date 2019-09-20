@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def responder():
-    return 'something'
+    return 'OK'
 
 
 if __name__ == '__main__':
