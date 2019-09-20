@@ -42,6 +42,8 @@ def responder():
             for j in range(4):
                 if i == j:
                     matrix[i][j] = '='
+                else:
+                    matrix[i][j] = result.group(i)[j]
 
         return ' ABCD\nA{}\nB{}\nC{}\nD{}'.format(''.join(matrix[0]),
                                                   ''.join(matrix[1]),
