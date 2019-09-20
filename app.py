@@ -33,8 +33,17 @@ def responder():
         return 'OK'
 
     if title == 'Puzzle':
-        # TODO: do the puzzle
-        pass
+        import re
+        result = re.search('Please solve this puzzle:\n ABCD\nA(....)\nB(....)\nC(....)\nD(....)\n',
+                           arguments['d'])
+
+        matrix = ['xxxx' for x in range(4)]
+        for i in range(4):
+            for j in range(4):
+                if i == j:
+                    matrix[i][j] = '='
+
+        return ' ABCD\nA{}\nB{}\nC{}\nD{}'.format(matrix[0], matrix[1], matrix[2], matrix[3])
 
     if title == 'Years':
         return '9 years'
