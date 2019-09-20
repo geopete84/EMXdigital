@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import logging
+from pprint import pprint
 app = Flask(__name__)
 
 if __name__ != '__main__':
@@ -12,17 +13,17 @@ if __name__ != '__main__':
 @app.before_request
 def log_request_info():
     app.logger.debug('Headers: %s', request.headers)
-    app.logger.debug('Values: %s', request.values)
-    app.logger.debug('Json: %s', request.json)
+    app.logger.debug('Args: %s', request.args)
+    app.logger.debug('Form: %s', request.form)
     app.logger.debug('Data: %s', request.data)
+    app.logger.debug('Json: %s', request.json)
 
 
 @app.route('/', methods=['GET'])
 def responder():
-    data = request.get_data()
+    args = request.args
 
-    if data == 'What is your full name?':
-        return 'George Peterson'
+    app.logger.debug(pprint(args))
 
     return 'OK'
 
