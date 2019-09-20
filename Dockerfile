@@ -10,7 +10,7 @@ RUN pip3 install --trusted-host pypi.python.org -r requirements.txt; \
 addgroup -S george && \
 adduser -S george -G george; \
 export FLASK_ENV=production \
-apk add --no-cache bash
+apk update && apk add bash
 
 USER george
 
