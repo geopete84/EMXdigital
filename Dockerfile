@@ -12,6 +12,7 @@ adduser -S george -G george; \
 export FLASK_ENV=production \
 apk update && apk add bash
 
+
 USER george
 
 EXPOSE 8000
