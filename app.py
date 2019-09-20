@@ -37,13 +37,17 @@ def responder():
         result = re.search('Please solve this puzzle:\n ABCD\nA(....)\nB(....)\nC(....)\nD(....)\n',
                            arguments['d'])
 
-        matrix = ['xxxx' for x in range(4)]
+        matrix = [['x' for y in range(4)] for x in range(4)]
         for i in range(4):
             for j in range(4):
                 if i == j:
                     matrix[i][j] = '='
 
-        return ' ABCD\nA{}\nB{}\nC{}\nD{}'.format(matrix[0], matrix[1], matrix[2], matrix[3])
+        return ' ABCD\nA{}\nB{}\nC{}\nD{}'.format(''.join(matrix[0]),
+                                                  ''.join(matrix[1]),
+                                                  ''.join(matrix[2]),
+                                                  ''.join(matrix[3]))
+
 
     if title == 'Years':
         return '9 years'
