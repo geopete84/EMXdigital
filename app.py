@@ -43,7 +43,7 @@ def responder():
                 if i == j:
                     matrix[i][j] = '='
                 else:
-                    matrix[i][j] = result.group(i)[j]
+                    matrix[i][j] = result.group(i+1)[j]
 
         return ' ABCD\nA{}\nB{}\nC{}\nD{}'.format(''.join(matrix[0]),
                                                   ''.join(matrix[1]),
