@@ -12,8 +12,9 @@ if __name__ != '__main__':
 @app.before_request
 def log_request_info():
     app.logger.debug('Headers: %s', request.headers)
-    app.logger.debug('Form: %s', request.form)
+    app.logger.debug('Values: %s', request.values)
     app.logger.debug('Json: %s', request.json)
+    app.logger.debug('Data: %s', request.data)
 
 
 @app.route('/', methods=['GET'])
