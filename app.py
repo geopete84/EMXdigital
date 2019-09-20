@@ -23,9 +23,44 @@ def log_request_info():
 def responder():
     args = request.args
 
-    app.logger.debug(pprint(args))
+    if args.get('Name'):
+        return 'George Peterson'
 
-    return 'OK'
+    if args.get('Position'):
+        return 'Senior Full Stack Python Engineer'
+
+    if args.get('Ping'):
+        return 'OK'
+
+    if args.get('Puzzle'):
+        # TODO: do the puzzle
+        pass
+
+    if args.get('Years'):
+        return '9 years'
+
+    if args.get('Degree'):
+        return 'Masters of Science in Electrical and Computer Engineering from Southern Illinois University Carbondale'
+
+    if args.get('Status'):
+        return 'US Citizen'
+
+    if args.get('Source'):
+        return 'https://github.com/geopete84/EMXdigital'
+
+    if args.get('Resume'):
+        return 'https://docs.google.com/document/d/e/2PACX-1vTnZCilVuyER89N3c4PLPJHscAbaoRNkXISkNP4B_oDyaxQ9k4PHIw1LVmeF5dnJakdRcpez4UMcrfg/pub'
+
+    if args.get('Phone'):
+        return '8152364740'
+
+    if args.get('Referrer'):
+        return 'Glassdoor'
+
+    if args.get('Email Address'):
+        return 'geopete84@gmail.com'
+
+    return 'working on it'
 
 
 if __name__ == '__main__':
